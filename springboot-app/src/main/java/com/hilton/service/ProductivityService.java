@@ -16,8 +16,11 @@ import java.io.FileReader;
       BufferedReader br = new BufferedReader(new FileReader(fileName));
       String line;
       while ((line = br.readLine()!=null){
-        String[] data = line.split("\|");
-        EmployeeProductivity employee = new EmployeeProductivity(data[0],data[1],data[2],data[3]);
+        String[] data = line.split("\\|");
+        if(data.length != 4){
+          continue;
+        }
+        EmployeeProductivity employee = new EmployeeProductivity(data[0].trim(),data[1].trim(),data[2].trim(),data[3].trim());
         repository.save(employee);
       }
       br.close();
