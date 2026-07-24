@@ -7,7 +7,7 @@ import org.springframework.web.bind,annotation.*;
 public class ProductivyController{
   
 @Autowired
-ProductivityService service;
+private ProductivityService service;
   
 @PostMapping("/loadEmployeeData")
 public Stirng loadData(@RequestParam String fileName) throws Exception{
