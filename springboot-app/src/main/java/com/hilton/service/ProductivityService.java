@@ -10,12 +10,12 @@ import java.io.FileReader;
 @Service
   public class ProductivityService{
     @Autowired
-    EmployeeProductivityRepository repository;
+    private EmployeeProductivityRepository repository;
     public void loadData(String fileName)
     throws Exception{
-      BufferedReader br = new BufferedReader(new FileReader(fileName));
+      try(BufferedReader br = new BufferedReader(new FileReader(fileName))){        
       String line;
-      while ((line = br.readLine()!=null){
+      while ((line = br.readLine())!=null){
         String[] data = line.split("\\|");
         if(data.length != 4){
           continue;
@@ -23,7 +23,7 @@ import java.io.FileReader;
         EmployeeProductivity employee = new EmployeeProductivity(data[0].trim(),data[1].trim(),data[2].trim(),data[3].trim());
         repository.save(employee);
       }
-      br.close();
     }
   }
+}
 
