@@ -7,9 +7,17 @@ public class EmployeeProductivity{
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private Long id;
+
+@Column(name="emp_id")
 private String empId;
+
+@Column(name="emp_name")
 private String empName;
+
+@Column(name="email")
 private String email;
+
+@Column(name="productivity_hours")
 private String productivityHours;
 
 public EmployeeProductivity(){}
@@ -21,7 +29,7 @@ public EmployeeProductivity(String empId,String empName, String email, String pr
   this.productivityHours=productivityHours;
 }
   
-//getter
+
   public Long getId(){
     return id;
   }
@@ -42,7 +50,7 @@ public EmployeeProductivity(String empId,String empName, String email, String pr
     return productivityHours;
   }
 
-  //setter
+
   public void setEmpId(String empId){
     this.empId=empId;
   }
