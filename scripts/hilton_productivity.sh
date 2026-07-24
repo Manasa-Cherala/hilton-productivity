@@ -1,7 +1,7 @@
 #! /bin/bash
 
-DATE_SHORT=$(date +%d_%m_%Y)
-DATE=$(date +%d_%m_%Y)
+DATE_SHORT=$(date +%d_%m_%y)
+DATE=$(date +%d_%m_%y)
 INPUT_FILE="../input/employee_${DATE_SHORT}.csv"
 OUTPUT_FILE="../output/Emp_Productivity_${DATE}.dat"
 LOG_FILE="../logs/logs_${DATE}.log"
@@ -9,7 +9,7 @@ echo "Process Started $(date)" >> $LOG_FILE
 
 # File Exists
 
-if [ ! -f "$INPUT_FILE"]
+if [ ! -f "$INPUT_FILE" ]
 then
   echo "ERROR : Input filenot recieved before 3:00 AM IST" >> $LOG_FILE
   echo "Alert Email Triggered : File Missing" >> $LOG_FILE
