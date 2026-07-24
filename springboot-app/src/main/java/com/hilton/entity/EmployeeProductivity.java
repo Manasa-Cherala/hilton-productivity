@@ -1,4 +1,4 @@
-package com.huilton.entity;
+package com.hilton.entity;
 import jakarta.persistence.*;
 
 @Entity
