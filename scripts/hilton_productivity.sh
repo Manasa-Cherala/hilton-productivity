@@ -107,9 +107,8 @@ echo "Summary Email Triggered" >> $LOG_FILE
 # API Call
 
 echo "Triggered Spring Boot API..." >> $LOG_FILE
-FULL_PATH=$(realpath "$OUTPUT_FILE")
 RESPONSE=$(curl -s -X POST \ 
-"http://localhost:8080/loadEmployeeData?fileName=$FULL_PATH")
+"http://localhost:8080/loadEmployeeData?fileName=$OUTPUT_FILE")
 echo "API Response : $RESPONSE" >> $LOG_FILE
 
 # FINAL LOGGING
