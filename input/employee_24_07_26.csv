@@ -1,4 +1,4 @@
-EmployeeID, EmployeeName, Phone, Email, InTime, TotalHours
-1001, John, 9876543210, john@gmail.com, 09:00, 08:45
-1002, David, 9876543211, david@gmail.com, 09:10, 09:15
-1003, Mike, 9876543212, mike@gmail.com, 08:45, 08:05
+EmployeeID,EmployeeName,Phone,Email,InTime,TotalHours
+1001,John,9876543210,john@gmail.com,09:00,08:45
+1002,David,9876543211,david@gmail.com,09:10,09:15
+1003,Mike,9876543212,mike@gmail.com,08:45,08:05
