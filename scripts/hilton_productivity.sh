@@ -84,7 +84,7 @@ do
 
       HOURS=$(echo "$TOTAL_HOURS" | cut -d':' -f1)
       MINUTES=$(echo "$TOTAL_HOURS" | cut -d':' -f2)
-      TOTAL_MINUTES=$((TOTAL_MINUTES +10#HOURS*60 +10#MINUTES))
+      TOTAL_MINUTES=$((TOTAL_MINUTES +10#HOURS*60 +10#$MINUTES))
       fi
 done < "$INPUT_FILE"
 
