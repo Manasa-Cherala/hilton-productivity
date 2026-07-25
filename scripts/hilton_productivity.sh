@@ -33,7 +33,7 @@ echo "File Arrival Validation Successful" >> $LOG_FILE
 
 # Header Validation
 
-EXPECTED_HEADER="EmployeeID,EMployeeName,Phone,Email,InTime,TotalHours"
+EXPECTED_HEADER="EmployeeID,EmployeeName,Phone,Email,InTime,TotalHours"
 HEADER=$(head -n 1 "$INPUT_FILE")
 if [ "$HEADER" != "$EXPECTED_HEADER" ]
 then
