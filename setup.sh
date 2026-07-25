@@ -7,7 +7,7 @@ mysql-server \
 curl
 
 sudo systemctl start mysql
-sudo mysql < <EOF
+sudo mysql <<EOF
 
 ALTER USER 'root'@'localhost'
 IDENTIFIED WITH mysql_native_password BY 'root';
