@@ -7,6 +7,16 @@ mysql-server \
 curl
 
 sudo systemctl start mysql
-sudo mysql < database/employee_productivity.sql
+sudo mysql < <EOF
+
+ALTER USER 'root'@'localhost'
+IDENTIFIED WITH mysql_native_password BY 'root';
+
+FLUSH PRIVILEGES;
+
+EOF
+
+sudo mysql -u root -proot < database/employee_productivity.sql
+mysql -u root -proot -e "SHOW DATABASES;"
 
 echo "Setup Completed"
