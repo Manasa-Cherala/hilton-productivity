@@ -66,7 +66,7 @@ echo "Generating output file..." >> $LOG_FILE
 tail -n +2 "$INPUT_FILE" | while IFS=',' \
 read EMP_ID EMP_NAME PHONE EMAIL INTIME TOTAL_HOURS
 do
-  echo "${EMP_ID}|${EMP_NAME}|${EMAIL}|${TOTAL_HOURS}" \ >> "$OUTPUT_FILE"
+  echo "${EMP_ID}|${EMP_NAME}|${EMAIL}|${TOTAL_HOURS}" >> "$OUTPUT_FILE"
 done
 echo "Ouput file created Succeessfully" >> $LOG_FILE
 
@@ -106,7 +106,7 @@ echo "Summary Email Triggered" >> $LOG_FILE
 # API Call
 
 echo "Triggered Spring Boot API..." >> $LOG_FILE
-RESPONSE=$(curl -s -X POST \ "http://localhost:8080/loadEmplyeeData?fileName=$OUTPUT_FILE")
+RESPONSE=$(curl -s -X POST \ "http://localhost:8080/loadEmployeeData?fileName=$OUTPUT_FILE")
 echo "API Response : $RESPONSE" >> $LOG_FILE
 
 # FINAL LOGGING
