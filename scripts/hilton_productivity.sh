@@ -47,7 +47,7 @@ echo "Format Validation Successful" >> $LOG_FILE
 
 #Empty file validation
 
-REOCRD_COUNT=$(tail -n +2 "$INPUT_FILE" \ wc -l)
+REOCRD_COUNT=$(tail -n +2 "$INPUT_FILE" | wc -l)
 if [ $REOCRD_COUNT -eq 0 ]
 then
   echo "WARNING : file contains header only" >> $LOG_FILE
@@ -58,12 +58,12 @@ fi
 echo "Employee records found : $REOCRD_COUNT" >> $LOG_FILE
 
 #Create output file
-
+> "$OUTPUT_FILE"
 echo "Generating output file..." >> $LOG_FILE
 
 # Write output data
 
-tail -n +2 "$INPUT_FILE" | while IFS=',' \
+tail -n +2 "$INPUT_FILE" | while IFS=',' 
 read EMP_ID EMP_NAME PHONE EMAIL INTIME TOTAL_HOURS
 do
   echo "${EMP_ID}|${EMP_NAME}|${EMAIL}|${TOTAL_HOURS}" >> "$OUTPUT_FILE"
@@ -75,16 +75,17 @@ echo "Ouput file created Succeessfully" >> $LOG_FILE
 TOTAL_EMPLOYEES=0
 TOTAL_MINUTES=0
 
-while IFS=',' \
+while IFS=',' 
 read EMP_ID EMP_NAME PHONE EMAIL INTIME TOTAL_HOURS
 do
     if [ "$EMP_ID" != "EmployeeID" ]
     then
-      TOTAL_EMPLOYEES=$((TOTAL_EMPLOYEE+1))
+      TOTAL_EMPLOYEES=$((TOTAL_EMPLOYEES+1))
 
-      HOURS=$(ECHO "$TOTAL_HOURS" | cut -d':' -f1)
-      MINUTES=$(echo "$TOTAL_MINUTES" | cut -d':' -f2)
+      HOURS=$(echo "$TOTAL_HOURS" | cut -d':' -f1)
+      MINUTES=$(echo "$TOTAL_HOURS" | cut -d':' -f2)
       TOTAL_MINUTES=$((TOTAL_MINUTES + HOURS*60 + MINUTES))
+      fi
 done < "$INPUT_FILE"
 
 FINAL_HOURS=$((TOTAL_MINUTES / 60))
